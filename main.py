@@ -82,7 +82,7 @@ def root():
 
     return render_template(
         'index.html',
-        user_data=claims, error_message=error_message, challenge=challenge)
+        user_data=claims, error_message=error_message, challenge=selected_challenge)
 # [END gae_python37_auth_verify_token]
 
 
