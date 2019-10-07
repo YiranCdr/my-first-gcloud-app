@@ -54,23 +54,16 @@
 <body>
 
 <!-- [START gae_python37_auth_firebase_html] -->
-<h1>Datastore & Firebase Auth Example</h1>
+<h1>Get your daily task!</h1>
 
 <div id="firebaseui-auth-container"></div>
 
 <button id="sign-out" hidden=true>Sign Out</button>
 
 <div id="login-info" hidden=true>
-  <h2>Login info:</h2>
   {% if user_data %}
-    <dl>
-      <dt>Name</dt><dd>{{ user_data['name'] }}</dd>
-      <dt>Email</dt><dd>{{ user_data['email'] }}</dd>
-      <dt>Last 10 visits</dt><dd>
-	{% for time in times %}
-          <p>{{ time['timestamp'] }}</p>
-        {% endfor %} </dd>
-    </dl>
+      <p id="sayhi">Hi {{ user_data['name'] }}! Your daily task is as follows:</p>
+      <p id="challenge">{{challenge}}</p>
   {% elif error_message %}
     <p>Error: {{ error_message }}</p>
   {% endif %}

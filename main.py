@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import datetime
+import random
 
 # [START gae_python37_auth_verify_token]
 from flask import Flask, render_template, request
@@ -28,22 +29,24 @@ datastore_client = datastore.Client()
 app = Flask(__name__)
 
 
-def store_time(dt):
-    entity = datastore.Entity(key=datastore_client.key('visit'))
-    entity.update({
-        'timestamp': dt
-    })
+# def store_time(dt):
+#     entity = datastore.Entity(key=datastore_client.key('visit'))
+#     entity.update({
+#         'timestamp': dt
+#     })
 
-    datastore_client.put(entity)
+#     datastore_client.put(entity)
 
 
-def fetch_times(limit):
-    query = datastore_client.query(kind='visit')
-    query.order = ['-timestamp']
+def fetch_challenge():
+    query = datastore_client.query(kind='challenge')
+    query.order = ['-content']
 
-    times = query.fetch(limit=limit)
+    challenges = query.fetch(limit=11)
+    index = random.randint(1, 10)
+    challenge = challenges[index]
 
-    return times
+    return challenge
 
 
 # [START gae_python37_auth_verify_token]
@@ -72,12 +75,12 @@ def root():
         # Record and fetch the recent times a logged-in user has accessed
         # the site. This is currently shared amongst all users, but will be
         # individualized in a following step.
-        store_time(datetime.datetime.now())
-        times = fetch_times(10)
+        # store_time(datetime.datetime.now())
+        challenge = fetch_challenge()
 
     return render_template(
         'index.html',
-        user_data=claims, error_message=error_message, times=times)
+        user_data=claims, error_message=error_message, challenge=challenge)
 # [END gae_python37_auth_verify_token]
 
 
