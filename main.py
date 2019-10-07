@@ -77,7 +77,7 @@ def root():
         # individualized in a following step.
         # store_time(datetime.datetime.now())
         
-        challenges = None
+        challenge = None
         challenge = fetch_challenge()
 
     return render_template(
