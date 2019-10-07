@@ -78,7 +78,7 @@ def root():
         # store_time(datetime.datetime.now())
         
         challenges = None
-        # challenge = fetch_challenge()
+        challenge = fetch_challenge()
 
     return render_template(
         'index.html',
