@@ -56,6 +56,7 @@ def root():
     id_token = request.cookies.get("token")
     error_message = None
     claims = None
+    selected_challenge = None
     # times = None
 
     if id_token:
@@ -77,8 +78,7 @@ def root():
         # individualized in a following step.
         # store_time(datetime.datetime.now())
         
-        challenge = None
-        challenge = fetch_challenge()
+        selected_challenge = fetch_challenge()
 
     return render_template(
         'index.html',
