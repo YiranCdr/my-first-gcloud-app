@@ -56,7 +56,7 @@ def root():
     id_token = request.cookies.get("token")
     error_message = None
     claims = None
-    times = None
+    # times = None
 
     if id_token:
         try:
@@ -76,7 +76,9 @@ def root():
         # the site. This is currently shared amongst all users, but will be
         # individualized in a following step.
         # store_time(datetime.datetime.now())
-        challenge = fetch_challenge()
+        
+        challenges = None
+        # challenge = fetch_challenge()
 
     return render_template(
         'index.html',
