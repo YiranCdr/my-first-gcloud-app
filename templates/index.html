@@ -61,9 +61,11 @@
 <button id="sign-out" hidden=true>Sign Out</button>
 
 <div id="login-info" hidden=true>
-  {% if user_data and challenge %}
+  {% if user_data %}
       <p id="sayhi">Hi! Your daily task is as follows:</p>
-      <p id="challenge">{{ challenge['content'] }}</p>
+      {% if challenge %}
+        <p id="challenge">{{ challenge['content'] }}</p>
+      {% endif %}
   {% elif error_message %}
     <p>Error: {{ error_message }}</p>
   {% endif %}
