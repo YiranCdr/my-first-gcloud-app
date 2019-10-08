@@ -63,9 +63,10 @@
 <div id="login-info" hidden=true>
   {% if user_data %}
       <p id="sayhi">Hi! Your daily task is as follows:</p>
-      <p id="test">{{ challenge }}</p>
       {% if challenge['content'] %}
         <p id="challenge">{{ challenge['content'] }}</p>
+      {% else %}
+        <p id="test">{{ challenge }}</p>
       {% endif %}
   {% elif error_message %}
     <p>Error: {{ error_message }}</p>
