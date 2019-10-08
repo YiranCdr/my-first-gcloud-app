@@ -65,8 +65,9 @@
       <p id="sayhi">Hi! Your daily task is as follows:</p>
       {% if challenge['content'] %}
         <p id="challenge">{{ challenge['content'] }}</p>
+        <p id="refresh">Wanna another? Refresh me!</p>
       {% else %}
-        <p id="test">{{ challenge }}</p>
+        <p id="nochallenge">{{ challenge }}</p>
       {% endif %}
   {% elif error_message %}
     <p>Error: {{ error_message }}</p>
