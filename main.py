@@ -40,12 +40,12 @@ app = Flask(__name__)
 
 def fetch_challenge():
     query = datastore_client.query(kind='challenge')
-    query.order = ['-content']
+    query.order = ['content']
 
-    challenges = query.fetch(limit=11)
+    
     index = random.randint(1, 10)
-    challenge = challenges[index]
-
+    for _ in range(index):
+        challenge = query.fetch(limit=10)
     return challenge
 
 
