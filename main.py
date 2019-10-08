@@ -49,6 +49,9 @@ def fetch_challenge():
     for challenge in challenges:
         if cnt == index:
             return challenge
+        else:
+            cnt += 1
+    return "i am nobody. "
 
 
 # [START gae_python37_auth_verify_token]
