@@ -51,7 +51,7 @@ def fetch_challenge():
             return challenge
         else:
             cnt += 1
-    return "i am nobody. "
+    return "Well... I need to think for a while... fresh me and try again!"
 
 
 # [START gae_python37_auth_verify_token]
