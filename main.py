@@ -44,9 +44,11 @@ def fetch_challenge():
 
     
     index = random.randint(1, 10)
-    for _ in range(index):
-        challenge = query.fetch(limit=10)
-    return challenge
+    challenges = query.fetch(limit=11)
+    cnt = 0
+    for challenge in challenges:
+        if cnt == index:
+            return challenge
 
 
 # [START gae_python37_auth_verify_token]
